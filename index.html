@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" class="scroll-smooth">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,360 +10,747 @@
       name="description"
       content="Création de sites internet modernes, rapides et optimisés pour artisans, indépendants et TPE locales. Votre site en ligne en 5 à 7 jours ouvrés."
     />
-    <script src="https://cdn.tailwindcss.com"></script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
     <style>
+      /* RESET & BASE */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Inter", sans-serif;
+        background-color: #020617; /* slate-950 */
+        color: #f1f5f9; /* slate-100 */
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      ::selection {
+        background-color: #10b981;
+        color: #000;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      /* TYPOGRAPHIE & COULEURS */
+      .text-emerald {
+        color: #34d399;
+      }
+      .text-white {
+        color: #ffffff;
+      }
+      .text-slate-300 {
+        color: #cbd5e1;
+      }
+      .text-slate-400 {
+        color: #94a3b8;
+      }
+      .text-slate-500 {
+        color: #64748b;
+      }
+      .text-amber {
+        color: #fbbf24;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+      .font-extrabold {
+        font-weight: 800;
+      }
+      .italic {
+        font-style: italic;
+      }
+
+      /* LAYOUT */
+      .container {
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      .container-sm {
+        max-width: 896px;
+      }
+
+      .section {
+        padding: 5rem 0;
+        border-top: 1px solid #0f172a; /* slate-900 */
+      }
+
+      .flex {
+        display: flex;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .gap-2 {
+        gap: 0.5rem;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+      .gap-6 {
+        gap: 1.5rem;
+      }
+      .gap-8 {
+        gap: 2rem;
+      }
+
+      /* HEADER */
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background-color: rgba(2, 6, 23, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #1e293b;
+        height: 4rem;
+      }
+
+      .pulse-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #10b981;
+        display: inline-block;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      /* COMPOSANTS */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.375rem 0.75rem;
+        border-radius: 9999px;
+        background-color: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        color: #34d399;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        font-weight: 700;
+        transition: all 0.2s;
+        cursor: pointer;
+        width: 100%;
+      }
+
+      .btn-primary {
+        background-color: #10b981;
+        color: #020617;
+        box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2);
+      }
+      .btn-primary:hover {
+        background-color: #34d399;
+      }
+
+      .btn-secondary {
+        background-color: #0f172a;
+        color: #ffffff;
+        border: 1px solid #1e293b;
+      }
+      .btn-secondary:hover {
+        background-color: #1e293b;
+      }
+
+      .btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        border-radius: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .btn-sm:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      /* GRILLES & CARTES */
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+
+      .card {
+        background-color: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 1rem;
+        padding: 1.5rem;
+      }
+
+      .card-premium {
+        background: linear-gradient(to bottom, #0f172a, #020617);
+        border: 2px solid rgba(16, 185, 129, 0.4);
+        position: relative;
+      }
+
+      .card-tag {
+        position: absolute;
+        top: -0.75rem;
+        right: 1.5rem;
+        background-color: #10b981;
+        color: #020617;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .step-number {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background-color: rgba(16, 185, 129, 0.2);
+        color: #34d399;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 auto 1rem auto;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+
+      .quote-block {
+        border-left: 2px solid #10b981;
+        padding-left: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      /* MEDIA QUERIES (Responsive) */
+      @media (min-width: 640px) {
+        .sm-flex-row {
+          flex-direction: row;
+        }
+        .btn {
+          width: auto;
+        }
+        .hero-title {
+          font-size: 3.75rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .grid-cols-2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-cols-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .md-flex-row {
+          flex-direction: row;
+        }
+        .md-w-5-12 {
+          width: 41.666%;
+        }
+        .md-w-7-12 {
+          width: 58.333%;
+        }
+
+        .step-card {
+          position: relative;
+        }
+        .step-line::before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: -1rem;
+          width: 2rem;
+          border-top: 2px dashed #334155;
+        }
+      }
+
+      /* UTILITAIRES SPÉCIFIQUES */
+      .hero-title {
+        font-size: 2.25rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1.125rem;
+        color: #94a3b8;
+        margin-bottom: 2.5rem;
+      }
+      .underline-emerald {
+        text-decoration: underline;
+        text-decoration-color: rgba(16, 185, 129, 0.4);
+      }
+      .mb-1 {
+        margin-bottom: 0.25rem;
+      }
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-6 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+      .mb-12 {
+        margin-bottom: 3rem;
+      }
+      .mt-8 {
+        margin-top: 2rem;
+      }
+      .text-sm {
+        font-size: 0.875rem;
+      }
+      .text-xs {
+        font-size: 0.75rem;
+      }
+      .text-lg {
+        font-size: 1.125rem;
+      }
+      .text-xl {
+        font-size: 1.25rem;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+      }
+      .text-3xl {
+        font-size: 1.875rem;
+      }
+      .text-4xl {
+        font-size: 2.25rem;
       }
     </style>
   </head>
-  <body
-    class="bg-slate-950 text-slate-100 antialiased selection:bg-emerald-500 selection:text-black"
-  >
-    <header
-      class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-slate-800"
-    >
+  <body>
+    <!-- HEADER -->
+    <header class="header">
       <div
-        class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between"
+        class="container flex items-center justify-between"
+        style="height: 100%"
       >
         <a
           href="#"
-          class="text-lg font-bold tracking-tight text-white flex items-center gap-2"
+          class="flex items-center gap-2 text-lg font-bold text-white"
         >
-          <span
-            class="w-3 h-3 rounded-full bg-emerald-500 inline-block animate-pulse"
-          ></span>
+          <span class="pulse-dot"></span>
           Louis <span class="text-slate-400 font-normal">| Webdesign</span>
         </a>
-        <a
-          href="tel:+33600000000"
-          class="text-sm font-semibold bg-white/10 hover:bg-white/20 text-white px-4 py-2 rounded-lg transition border border-white/10"
-        >
+        <a href="tel:+33600000000" class="btn-sm text-white font-bold">
           📞 Appeler directement
         </a>
       </div>
     </header>
 
-    <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-      <div
-        class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold mb-8"
-      >
-        <span>✨ Sites web pros pour artisans, commerçants & TPE</span>
-      </div>
-
-      <h1
-        class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6"
-      >
-        Un site web moderne et percutant qui
-        <span class="text-emerald-400 underline decoration-emerald-500/40"
-          >trouve des clients</span
-        >.
-      </h1>
-
-      <p
-        class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-      >
-        Fini les devis d'agence à 3 000 €. Obtenez une présence professionnelle,
-        optimisée pour votre activité locale.
-        <strong class="text-white"
-          >Votre site en ligne en 5 à 7 jours ouvrés.</strong
-        >
-      </p>
-
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href="https://wa.me/33600000000"
-          target="_blank"
-          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-base transition shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
-        >
-          <span>💬 Discuter sur WhatsApp</span>
-        </a>
-        <a
-          href="#offres"
-          class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-semibold text-base transition border border-slate-800"
-        >
-          Voir les offres & tarifs ↓
-        </a>
-      </div>
-
-      <div
-        class="mt-8 flex items-center justify-center gap-2 text-sm text-slate-400 font-medium"
-      >
-        <svg
-          class="w-5 h-5 text-emerald-500"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-          ></path>
-        </svg>
-        Ajustements illimités jusqu'à validation finale de la maquette
-      </div>
-    </section>
-
-    <!-- NOUVELLE SECTION : Processus -->
-    <section class="py-16 px-6 max-w-5xl mx-auto border-t border-slate-900">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-white mb-3">
-          Votre site en ligne sans effort
-        </h2>
-        <p class="text-slate-400">
-          Un processus pensé pour ne pas vous faire perdre de temps.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <div
-          class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center"
-        >
-          <div
-            class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold mx-auto mb-4 border border-emerald-500/30"
-          >
-            1
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Cadrage rapide</h3>
-          <p class="text-slate-400 text-sm">
-            Un échange de 20 minutes suffit pour comprendre votre activité, vos
-            cibles et récupérer vos photos.
-          </p>
-        </div>
-        <div
-          class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center relative"
-        >
-          <div
-            class="hidden md:block absolute top-1/2 -left-4 w-8 border-t-2 border-dashed border-slate-700"
-          ></div>
-          <div
-            class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold mx-auto mb-4 border border-emerald-500/30"
-          >
-            2
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Création & Maquette</h3>
-          <p class="text-slate-400 text-sm">
-            Je conçois le design et rédige les textes. Vous validez le résultat
-            avant la mise en ligne.
-          </p>
-        </div>
-        <div
-          class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center relative"
-        >
-          <div
-            class="hidden md:block absolute top-1/2 -left-4 w-8 border-t-2 border-dashed border-slate-700"
-          ></div>
-          <div
-            class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl font-bold mx-auto mb-4 border border-emerald-500/30"
-          >
-            3
-          </div>
-          <h3 class="text-lg font-bold text-white mb-2">Lancement</h3>
-          <p class="text-slate-400 text-sm">
-            Mise en ligne, configuration de votre nom de domaine et optimisation
-            de votre fiche Google locale.
-          </p>
-        </div>
-      </div>
-    </section>
-
+    <!-- HERO SECTION -->
     <section
-      id="offres"
-      class="py-16 px-6 max-w-5xl mx-auto border-t border-slate-900"
+      class="section text-center"
+      style="padding-top: 5rem; border-top: none"
     >
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-white mb-3">
-          Tarifs clairs, sans surprise
-        </h2>
-        <p class="text-slate-400">
-          Tout ce dont vous avez besoin pour être visible et crédible
-          immédiatement.
-        </p>
-      </div>
+      <div class="container container-sm">
+        <div class="badge">
+          ✨ Sites web pros pour artisans, commerçants & TPE
+        </div>
 
-      <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
-        <div
-          class="p-8 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 border-2 border-emerald-500/40 relative flex flex-col justify-between shadow-xl"
-        >
-          <div
-            class="absolute -top-3 right-6 bg-emerald-500 text-slate-950 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+        <h1 class="hero-title text-white">
+          Un site web moderne et percutant qui
+          <span class="text-emerald underline-emerald">trouve des clients</span
+          >.
+        </h1>
+
+        <p class="hero-subtitle">
+          Fini les devis d'agence à 3 000 €. Obtenez une présence
+          professionnelle, optimisée pour votre activité locale.
+          <strong class="text-white"
+            >Votre site en ligne en 5 à 7 jours ouvrés.</strong
           >
-            Le plus populaire
-          </div>
-          <div>
-            <h3 class="text-xl font-bold text-white mb-2">Pack One-Page Pro</h3>
-            <p class="text-slate-400 text-sm mb-6">
-              Idéal pour présenter votre activité, vos services et déclencher
-              des appels.
+        </p>
+
+        <div
+          class="flex flex-col sm-flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="https://wa.me/33600000000"
+            target="_blank"
+            class="btn btn-primary"
+          >
+            💬 Discuter sur WhatsApp
+          </a>
+          <a href="#offres" class="btn btn-secondary">
+            Voir les offres & tarifs ↓
+          </a>
+        </div>
+
+        <div
+          class="flex items-center justify-center gap-2 text-sm text-slate-400 font-bold mt-8"
+        >
+          <svg
+            style="width: 20px; height: 20px"
+            class="text-emerald"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            ></path>
+          </svg>
+          Ajustements illimités jusqu'à validation finale de la maquette
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESSUS SECTION -->
+    <section class="section">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-2">
+            Votre site en ligne sans effort
+          </h2>
+          <p class="text-slate-400">
+            Un processus pensé pour ne pas vous faire perdre de temps.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-3 gap-8">
+          <div class="card text-center step-card">
+            <div class="step-number">1</div>
+            <h3 class="text-lg font-bold text-white mb-2">Cadrage rapide</h3>
+            <p class="text-slate-400 text-sm">
+              Un échange de 20 minutes suffit pour comprendre votre activité,
+              vos services et récupérer vos éléments.
             </p>
-            <div class="text-4xl font-extrabold text-white mb-6">
-              450 €
-              <span class="text-slate-500 text-sm font-normal"
-                >paiement unique</span
+          </div>
+          <div class="card text-center step-card step-line">
+            <div class="step-number">2</div>
+            <h3 class="text-lg font-bold text-white mb-2">
+              Création & Maquette
+            </h3>
+            <p class="text-slate-400 text-sm">
+              Je conçois l'interface, structure le contenu et optimise le
+              parcours client. Vous validez l'aperçu.
+            </p>
+          </div>
+          <div class="card text-center step-card step-line">
+            <div class="step-number">3</div>
+            <h3 class="text-lg font-bold text-white mb-2">Mise en ligne</h3>
+            <p class="text-slate-400 text-sm">
+              Liaison nom de domaine, HTTPS, boutons d'appels directs et
+              indexation Google pour capter vos prospects.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OFFRES SECTION -->
+    <section id="offres" class="section">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-2">
+            Tarifs clairs, sans surprise
+          </h2>
+          <p class="text-slate-400">
+            Tout ce dont vous avez besoin pour être visible et crédible
+            immédiatement.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-8 container-sm">
+          <!-- PACK 1 -->
+          <div class="card card-premium flex flex-col justify-between">
+            <div class="card-tag">Le plus populaire</div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Pack One-Page Pro
+              </h3>
+              <p class="text-slate-400 text-sm mb-6">
+                Idéal pour présenter votre activité, vos services et déclencher
+                des appels directs.
+              </p>
+
+              <div class="text-4xl font-extrabold text-white mb-6">
+                450 €
+                <span class="text-slate-500 text-sm font-normal"
+                  >paiement unique</span
+                >
+              </div>
+
+              <ul class="text-sm text-slate-300 mb-8 flex flex-col gap-4">
+                <li class="flex items-center gap-2">
+                  ✓ <span>Design moderne & sur-mesure</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Optimisé mobile & tablette</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Boutons d'appel direct & WhatsApp</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Formulaire de devis instantané</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Référencement local (SEO de base)</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-emerald font-bold">✓</span>
+                  <strong class="text-emerald">Livraison en 5 à 7 jours</strong>
+                </li>
+              </ul>
+            </div>
+            <a
+              href="https://wa.me/33600000000?text=Bonjour,%20je%20suis%20intéressé%20par%20l'offre%20One-Page%20à%20450€"
+              class="btn btn-primary text-center"
+            >
+              Lancer mon projet
+            </a>
+          </div>
+
+          <!-- PACK 2 -->
+          <div class="card flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Pack Multi-Pages
+              </h3>
+              <p class="text-slate-400 text-sm mb-6">
+                Pour détailler plusieurs activités distinctes ou besoins
+                avancés.
+              </p>
+
+              <div class="text-4xl font-extrabold text-white mb-6">
+                <span class="text-slate-500 text-lg font-normal"
+                  >À partir de </span
+                >790 €
+              </div>
+
+              <ul class="text-sm text-slate-400 mb-8 flex flex-col gap-4">
+                <li class="flex items-center gap-2">
+                  ✓ <span>Jusqu'à 5 pages complètes</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Architecture SEO poussée</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Sections spécifiques & galeries</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Connexion outils externes si besoin</span>
+                </li>
+              </ul>
+            </div>
+            <a href="tel:+33600000000" class="btn btn-secondary text-center">
+              Demander un devis
+            </a>
+          </div>
+        </div>
+
+        <!-- MAINTENANCE -->
+        <div
+          class="card container-sm mt-8 flex flex-col sm-flex-row items-center justify-between gap-6"
+        >
+          <div>
+            <h4 class="text-lg font-bold text-white mb-1">
+              Gérez votre métier, je gère la technique
+            </h4>
+            <p class="text-slate-400 text-sm">
+              Hébergement ultra-rapide, certificat HTTPS, sauvegardes régulières
+              et petites modifications incluses.
+            </p>
+          </div>
+          <div class="text-right" style="flex-shrink: 0">
+            <div class="text-2xl font-bold text-emerald">
+              39 €<span class="text-sm text-slate-500 font-normal">
+                / mois</span
+              >
+            </div>
+            <div class="text-xs text-slate-500 mt-1">Sans engagement</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO & AVIS -->
+    <section class="section">
+      <div class="container container-sm">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-2">
+            Réalisations & Avis clients
+          </h2>
+          <p class="text-slate-400">
+            Des sites conçus pour être rapides, clairs et efficaces.
+          </p>
+        </div>
+
+        <div class="card flex flex-col md-flex-row items-center gap-8">
+          <!-- VISUEL SITE -->
+          <div
+            class="md-w-5-12 flex flex-col justify-between"
+            style="
+              background-color: rgba(30, 41, 59, 0.5);
+              padding: 1.5rem;
+              border-radius: 0.75rem;
+              border: 1px solid #1e293b;
+              height: 100%;
+            "
+          >
+            <div>
+              <div
+                class="text-xs font-bold text-emerald mb-2"
+                style="text-transform: uppercase; letter-spacing: 0.05em"
+              >
+                Nettoyage Extrême & Sinistre
+              </div>
+              <div class="text-xl font-bold text-white mb-2">
+                Groupe Vitalis
+              </div>
+              <p class="text-xs text-slate-400 mb-6">
+                Site one-page professionnel avec présentation des prestations,
+                zone d'intervention et formulaire d'urgence.
+              </p>
+            </div>
+            <a
+              href="https://www.groupevitalis.com/"
+              target="_blank"
+              class="btn-sm text-center text-white font-bold flex items-center justify-center gap-2"
+              style="width: 100%"
+            >
+              Voir le site en ligne
+              <svg
+                style="width: 14px; height: 14px"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                ></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- AVIS -->
+          <div class="md-w-7-12">
+            <div class="flex items-center gap-2 mb-4">
+              <div class="text-amber text-sm font-bold tracking-widest">
+                ★★★★★
+              </div>
+              <span
+                class="text-xs font-bold text-emerald"
+                style="
+                  background: rgba(16, 185, 129, 0.1);
+                  padding: 2px 6px;
+                  border-radius: 4px;
+                  border: 1px solid rgba(16, 185, 129, 0.2);
+                "
+                >Avis vérifié Google</span
               >
             </div>
 
-            <ul class="space-y-3 text-sm text-slate-300 mb-8">
-              <li class="flex items-center gap-2">
-                ✓ <span>Design moderne & sur-mesure</span>
-              </li>
-              <li class="flex items-center gap-2">
-                ✓ <span>Optimisé mobile & tablette</span>
-              </li>
-              <li class="flex items-center gap-2">
-                ✓ <span>Boutons d'appel direct & WhatsApp</span>
-              </li>
-              <li class="flex items-center gap-2">
-                ✓ <span>Formulaire de contact / devis</span>
-              </li>
-              <li class="flex items-center gap-2">
-                ✓ <span>Référencement local (SEO de base)</span>
-              </li>
-              <li class="flex items-center gap-2">
-                <span class="text-emerald-400 font-bold">✓</span>
-                <strong class="text-emerald-400"
-                  >Livraison en 5 à 7 jours</strong
-                >
-              </li>
-            </ul>
-          </div>
-          <a
-            href="https://wa.me/33600000000?text=Bonjour,%20je%20suis%20intéressé%20par%20l'offre%20One-Page%20à%20450€"
-            class="w-full py-3 text-center bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold rounded-xl transition"
-          >
-            Lancer mon projet
-          </a>
-        </div>
-
-        <div
-          class="p-8 rounded-2xl bg-slate-900/50 border border-slate-800 flex flex-col justify-between"
-        >
-          <div>
-            <h3 class="text-xl font-bold text-white mb-2">Pack Multi-Pages</h3>
-            <p class="text-slate-400 text-sm mb-6">
-              Pour détailler plusieurs activités distinctes ou besoins avancés.
-            </p>
-            <div class="text-4xl font-extrabold text-white mb-6">
-              <span class="text-slate-500 text-lg font-normal"
-                >À partir de </span
-              >790 €
+            <div class="quote-block">
+              <p class="text-slate-300 italic text-sm">
+                « Très content du résultat ! Le site est exactement comme je le
+                voulais, moderne épuré et professionnel. Il a été à l’écoute de
+                mes demandes, réactif et a toujours trouvé des solutions pour
+                améliorer le rendu. Les échanges étaient simples et le travail a
+                été fait avec sérieux. Je recommande sans hésiter, merci encore
+                ! »
+              </p>
             </div>
 
-            <ul class="space-y-3 text-sm text-slate-400 mb-8">
-              <li class="flex items-center gap-2">
-                ✓ <span>Jusqu'à 5 pages complètes</span>
-              </li>
-              <li class="flex items-center gap-2">
-                ✓ <span>Architecture SEO poussée</span>
-              </li>
-              <li class="flex items-center gap-2">
-                ✓ <span>Sections spécifiques & galeries</span>
-              </li>
-              <li class="flex items-center gap-2">
-                ✓ <span>Connexion outils externes si besoin</span>
-              </li>
-            </ul>
-          </div>
-          <a
-            href="tel:+33600000000"
-            class="w-full py-3 text-center bg-slate-800 hover:bg-slate-700 text-white font-semibold rounded-xl transition border border-slate-700"
-          >
-            Demander un devis
-          </a>
-        </div>
-      </div>
-
-      <!-- NOUVEAU : Bloc Maintenance -->
-      <div
-        class="mt-8 p-6 rounded-2xl bg-slate-900/50 border border-slate-800 max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6"
-      >
-        <div>
-          <h4 class="text-lg font-bold text-white mb-1">
-            Gérez votre métier, je gère la technique
-          </h4>
-          <p class="text-slate-400 text-sm">
-            Hébergement ultra-rapide, certificat de sécurité (HTTPS),
-            sauvegardes régulières et petites modifications incluses.
-          </p>
-        </div>
-        <div class="text-right shrink-0">
-          <div class="text-2xl font-bold text-emerald-400">
-            39 €<span class="text-sm text-slate-500 font-normal"> / mois</span>
-          </div>
-          <div class="text-xs text-slate-500 mt-1">Sans engagement</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="py-16 px-6 max-w-4xl mx-auto border-t border-slate-900">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-white mb-3">
-          Ils m'ont fait confiance
-        </h2>
-        <p class="text-slate-400">
-          Des sites conçus pour être rapides, clairs et efficaces.
-        </p>
-      </div>
-
-      <!-- TÉMOIGNAGE MIS À JOUR -->
-      <div
-        class="p-6 rounded-2xl bg-slate-900 border border-slate-800 flex flex-col md:flex-row items-center gap-8 mb-8"
-      >
-        <div
-          class="w-full md:w-5/12 bg-slate-800 h-56 rounded-xl flex items-center justify-center text-slate-500 font-medium border border-slate-700 overflow-hidden relative group"
-        >
-          <div
-            class="absolute inset-0 bg-slate-800 flex flex-col items-center justify-center text-center p-4"
-          >
-            <span class="text-4xl mb-2">🧹</span>
-            <span class="text-sm font-medium text-slate-300"
-              >Maquette intégrée :<br />Vitalis Propreté</span
-            >
-          </div>
-        </div>
-        <div class="w-full md:w-7/12">
-          <span
-            class="text-xs font-semibold uppercase tracking-wider text-emerald-400"
-            >Nettoyage & Rénovation</span
-          >
-          <h3 class="text-2xl font-bold text-white mt-1 mb-4">
-            Vitalis — Services Propreté
-          </h3>
-
-          <blockquote class="border-l-2 border-emerald-500 pl-4 mb-4">
-            <p class="text-slate-300 italic text-sm leading-relaxed">
-              "Louis a été hyper réactif et professionnel. Le site a été livré
-              rapidement, il correspond exactement à ce que je voulais pour
-              présenter mes services de nettoyage. Je reçois déjà des demandes
-              de devis via le formulaire. Excellent travail !"
-            </p>
-          </blockquote>
-
-          <div class="flex items-center justify-between">
-            <div>
-              <div class="font-semibold text-white text-sm">Herman Gnahoua</div>
-              <div class="text-xs text-slate-500">Gérant, Vitalis</div>
-            </div>
-            <div
-              class="inline-flex items-center gap-1 text-amber-400 text-sm font-semibold"
-            >
-              ★★★★★
+            <div class="flex items-center gap-4 mt-6">
+              <div
+                style="
+                  width: 2.5rem;
+                  height: 2.5rem;
+                  border-radius: 50%;
+                  background: rgba(16, 185, 129, 0.2);
+                  color: #34d399;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-weight: bold;
+                  border: 1px solid rgba(16, 185, 129, 0.3);
+                "
+              >
+                HG
+              </div>
+              <div>
+                <div class="font-bold text-white text-sm">Herman Gnahoua</div>
+                <div class="text-xs text-slate-500">
+                  Gérant — groupevitalis.com
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- FOOTER -->
     <footer
-      class="py-8 px-6 text-center text-xs text-slate-500 border-t border-slate-900"
+      class="text-center text-xs text-slate-500 section"
+      style="padding: 2rem 0"
     >
       <p>© 2026 louis-webdesign.fr — Tous droits réservés.</p>
     </footer>
