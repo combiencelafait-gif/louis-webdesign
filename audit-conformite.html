@@ -362,7 +362,7 @@
           Louis <span class="text-slate-400 font-normal">| Webdesign</span>
         </a>
         <a
-          href="mailto:louis.gergaud5@gmail.com?subject=Demande%20de%20contact"
+          href="#contact-form"
           class="btn-sm text-white font-bold flex items-center gap-2"
         >
           <svg
@@ -470,10 +470,7 @@
         </ul>
 
         <div class="flex flex-col items-center justify-center gap-2">
-          <a
-            href="mailto:louis.gergaud5@gmail.com?subject=Demande%20d'audit%20gratuit&body=Bonjour%20Louis,%0A%0AVoici%20l'adresse%20de%20ma%20boutique%20:%20%0ANos%20produits%20(cosm%C3%A9tiques%20ou%20compl%C3%A9ments)%20:%20%0A%0AMerci !"
-            class="btn btn-primary"
-          >
+          <a href="#contact-form" class="btn btn-primary">
             Recevoir mon audit gratuit
           </a>
           <p class="text-xs text-slate-500 mt-2">
@@ -671,7 +668,7 @@
             </div>
             <div>
               <a
-                href="mailto:louis.gergaud5@gmail.com?subject=R%C3%A9servation%20Pack%20Diagnostic"
+                href="#contact-form"
                 class="btn btn-secondary text-center w-full"
                 >Réserver le diagnostic</a
               >
@@ -719,9 +716,7 @@
                 </li>
               </ul>
             </div>
-            <a
-              href="mailto:louis.gergaud5@gmail.com?subject=Devis%20Pack%20Conformit%C3%A9"
-              class="btn btn-primary text-center w-full"
+            <a href="#contact-form" class="btn btn-primary text-center w-full"
               >Demander un devis</a
             >
           </div>
@@ -757,9 +752,7 @@
                 </li>
               </ul>
             </div>
-            <a
-              href="mailto:louis.gergaud5@gmail.com?subject=Infos%20Abonnement%20Veille"
-              class="btn btn-secondary text-center w-full"
+            <a href="#contact-form" class="btn btn-secondary text-center w-full"
               >S'abonner à la veille</a
             >
           </div>
@@ -889,6 +882,110 @@
       </div>
     </section>
 
+    <section id="contact-form" class="section">
+      <div class="container container-sm">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-2">
+            Demander un audit ou un devis
+          </h2>
+          <p class="text-slate-400">
+            Remplissez ce formulaire, je vous réponds sous 24h.
+          </p>
+        </div>
+
+        <div class="card" style="max-width: 600px; margin: 0 auto">
+          <form
+            action="https://formspree.io/f/xppqyoza"
+            method="POST"
+            class="flex flex-col gap-6"
+          >
+            <div class="flex flex-col gap-2">
+              <label for="email" class="text-sm font-bold text-white"
+                >Votre adresse e-mail *</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="contact@maboutique.fr"
+                style="
+                  width: 100%;
+                  padding: 0.875rem;
+                  border-radius: 0.5rem;
+                  background-color: #020617;
+                  border: 1px solid #1e293b;
+                  color: #fff;
+                  outline: none;
+                  transition: border-color 0.2s;
+                "
+                onfocus="this.style.borderColor = '#10b981'"
+                onblur="this.style.borderColor = '#1e293b'"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="url" class="text-sm font-bold text-white"
+                >URL de votre boutique</label
+              >
+              <input
+                type="url"
+                id="url"
+                name="boutique_url"
+                placeholder="https://www.maboutique.fr"
+                style="
+                  width: 100%;
+                  padding: 0.875rem;
+                  border-radius: 0.5rem;
+                  background-color: #020617;
+                  border: 1px solid #1e293b;
+                  color: #fff;
+                  outline: none;
+                  transition: border-color 0.2s;
+                "
+                onfocus="this.style.borderColor = '#10b981'"
+                onblur="this.style.borderColor = '#1e293b'"
+              />
+            </div>
+
+            <div class="flex flex-col gap-2">
+              <label for="message" class="text-sm font-bold text-white"
+                >Votre demande *</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                required
+                placeholder="Précisez votre besoin (Audit gratuit, devis, etc.)..."
+                style="
+                  width: 100%;
+                  padding: 0.875rem;
+                  border-radius: 0.5rem;
+                  background-color: #020617;
+                  border: 1px solid #1e293b;
+                  color: #fff;
+                  outline: none;
+                  resize: vertical;
+                  transition: border-color 0.2s;
+                "
+                onfocus="this.style.borderColor = '#10b981'"
+                onblur="this.style.borderColor = '#1e293b'"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-primary"
+              style="width: 100%; padding: 1rem"
+            >
+              Envoyer ma demande
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container container-sm">
         <div class="text-center mb-12">
@@ -970,7 +1067,7 @@
               >06 60 69 99 00</a
             >
             <a
-              href="mailto:louis.gergaud5@gmail.com"
+              href="#contact-form"
               class="text-slate-400 text-sm hover:text-emerald transition-colors"
               >Envoyer un email</a
             >
