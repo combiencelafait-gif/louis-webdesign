@@ -294,7 +294,6 @@
       }
 
       @media (min-width: 768px) {
-        /* Correction de la grille des prix pour accepter 3 colonnes sur grand écran */
         .grid-cols-3 {
           grid-template-columns: repeat(3, 1fr);
         }
@@ -321,7 +320,6 @@
         }
       }
 
-      /* Sur les très grands écrans, on force les 3 colonnes pour la grille des prix */
       @media (min-width: 1024px) {
         .lg-grid-cols-3 {
           grid-template-columns: repeat(3, 1fr);
@@ -508,7 +506,6 @@
           style="background: linear-gradient(to right, #0f172a, #020617)"
         >
           <div class="md-w-5-12">
-            <!-- Modification majeure : Image d'illustration webdesign haut de gamme depuis Unsplash -->
             <div
               style="
                 width: 100%;
@@ -619,7 +616,6 @@
           </p>
         </div>
 
-        <!-- Correction majeure : Passage à grid-cols-3 (lg-grid-cols-3) pour accepter les 3 cartes sans casser le design, et retrait du container-sm pour laisser la place -->
         <div class="grid grid-cols-1 lg-grid-cols-3 gap-8">
           <div class="card card-premium flex flex-col justify-between">
             <div class="card-tag">Le plus populaire</div>
@@ -1076,7 +1072,6 @@
               class="text-slate-400 text-sm hover:text-emerald transition-colors"
               >Politique de confidentialité</a
             >
-            <!-- Ajout discret du lien SEO vers la page d'audit de conformité -->
             <a
               href="audit-conformite.html"
               class="text-slate-400 text-sm hover:text-emerald transition-colors mt-2"
