@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      Louis Webdesign — Audit & Conformité E-commerce (Cosmétiques &
+      Louis Webdesign — Conformité du Contenu E-commerce (Cosmétiques &
       Compléments)
     </title>
 
@@ -12,7 +12,7 @@
 
     <meta
       name="description"
-      content="Évitez les blocages Stripe et les sanctions de la DGCCRF. Mise aux normes techniques et réglementaires de vos fiches produits par un développeur expert en chimie."
+      content="Réduisez les risques de blocages Stripe et de contrôles DGCCRF. Mise aux normes du contenu de vos fiches produits par un développeur expert en chimie."
     />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -75,8 +75,8 @@
       .text-center {
         text-align: center;
       }
-      .text-right {
-        text-align: right;
+      .text-left {
+        text-align: left;
       }
       .font-bold {
         font-weight: 700;
@@ -107,6 +107,9 @@
       }
       .items-center {
         align-items: center;
+      }
+      .items-start {
+        align-items: flex-start;
       }
       .justify-center {
         justify-content: center;
@@ -216,6 +219,10 @@
         display: grid;
         gap: 2rem;
       }
+      .grid-cols-1 {
+        grid-template-columns: repeat(1, 1fr);
+      }
+
       .card {
         background-color: #0f172a;
         border: 1px solid #1e293b;
@@ -249,20 +256,6 @@
         text-transform: uppercase;
         letter-spacing: 0.05em;
       }
-      .step-number {
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        background-color: rgba(16, 185, 129, 0.2);
-        color: #34d399;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.25rem;
-        font-weight: 700;
-        margin: 0 auto 1rem auto;
-        border: 1px solid rgba(16, 185, 129, 0.3);
-      }
 
       @media (min-width: 640px) {
         .sm-flex-row {
@@ -276,10 +269,10 @@
         }
       }
       @media (min-width: 768px) {
-        .grid-cols-2 {
+        .md-grid-cols-2 {
           grid-template-columns: repeat(2, 1fr);
         }
-        .grid-cols-3 {
+        .md-grid-cols-3 {
           grid-template-columns: repeat(3, 1fr);
         }
         .md-flex-row {
@@ -326,6 +319,9 @@
       .mb-12 {
         margin-bottom: 3rem;
       }
+      .mt-4 {
+        margin-top: 1rem;
+      }
       .mt-8 {
         margin-top: 2rem;
       }
@@ -359,14 +355,14 @@
         style="height: 100%"
       >
         <a
-          href="#"
+          href="https://www.louis-webdesign.fr/"
           class="flex items-center gap-2 text-lg font-bold text-white"
         >
           <span class="pulse-dot"></span>
           Louis <span class="text-slate-400 font-normal">| Webdesign</span>
         </a>
         <a
-          href="mailto:louis.gergaud5@gmail.com?subject=Demande%20de%20contact%20-%20Audit%20Conformit%C3%A9"
+          href="mailto:louis.gergaud5@gmail.com?subject=Demande%20de%20contact"
           class="btn-sm text-white font-bold flex items-center gap-2"
         >
           <svg
@@ -396,47 +392,38 @@
         <div class="badge">E-commerce Shopify & WooCommerce</div>
 
         <h1 class="hero-title text-white">
-          Sécurisez votre boutique e-commerce :
+          Sécurisez les fiches produits de votre boutique
           <span class="text-emerald underline-emerald"
-            >Audit de conformité</span
+            >cosmétique ou compléments alimentaires.</span
           >
-          réglementaire.
         </h1>
 
         <p class="hero-subtitle">
-          Évitez les blocages de vos processeurs de paiement (Stripe, PayPal) et
-          les sanctions de la DGCCRF. Mise aux normes techniques et
-          scientifiques de vos fiches produits cosmétiques et compléments
-          alimentaires.
+          Je vérifie et corrige les allégations, mentions et listes
+          d’ingrédients de vos fiches Shopify ou WooCommerce afin de réduire les
+          risques de blocage Stripe/PayPal, de signalement client ou de contrôle
+          DGCCRF.
         </p>
 
-        <div
-          class="flex flex-col sm-flex-row items-center justify-center gap-4"
+        <ul
+          class="text-slate-300 text-sm mb-8 flex flex-col md-flex-row justify-center gap-4 text-left md:text-center"
         >
+          <li>✅ Audit des allégations santé et marketing</li>
+          <li>✅ Correction et structuration des listes INCI</li>
+          <li>✅ Intégration sur Shopify / WooCommerce</li>
+        </ul>
+
+        <div class="flex flex-col items-center justify-center gap-2">
           <a
-            href="mailto:louis.gergaud5@gmail.com?subject=Demande%20d'audit%20de%20conformit%C3%A9%20e-commerce&body=Bonjour%20Louis,%0A%0AVoici%20l'adresse%20de%20ma%20boutique%20:%20%0ANos%20produits%20(cosm%C3%A9tiques%20ou%20compl%C3%A9ments)%20:%20%0A%0AMerci !"
+            href="mailto:louis.gergaud5@gmail.com?subject=Demande%20d'audit%20gratuit&body=Bonjour%20Louis,%0A%0AVoici%20l'adresse%20de%20ma%20boutique%20:%20%0ANos%20produits%20(cosm%C3%A9tiques%20ou%20compl%C3%A9ments)%20:%20%0A%0AMerci !"
             class="btn btn-primary"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="lucide lucide-mail"
-            >
-              <rect width="20" height="16" x="2" y="4" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-            </svg>
-            Demander mon audit gratuit (10 min)
+            Recevoir mon audit gratuit
           </a>
-          <a href="#offres" class="btn btn-secondary">
-            Voir les packs d'intervention ↓
-          </a>
+          <p class="text-xs text-slate-500 mt-2">
+            Audit initial de 10 min — sans engagement. Diagnostic priorisé de
+            vos 3 à 5 fiches les plus exposées.
+          </p>
         </div>
       </div>
     </section>
@@ -470,36 +457,36 @@
                 border-color: rgba(248, 113, 113, 0.2);
               "
             >
-              Le problème des agences web
+              Limitez les risques évitables
             </div>
             <h2 class="text-2xl font-bold text-white mb-4">
-              La seule prestation qui allie code et rigueur scientifique
+              La seule prestation qui allie code web et rigueur scientifique
             </h2>
             <p class="text-slate-400 text-sm mb-4">
-              Les développeurs traditionnels et les rédacteurs SEO ne maîtrisent
-              ni le Règlement Cosmétique Européen (CE 1223/2009) ni le registre
-              EFSA pour les compléments alimentaires. Une allégation santé
-              maladroite ou une liste INCI mal formatée suffit pour faire
-              bloquer vos encaissements par Stripe.
+              Les développeurs traditionnels ne maîtrisent ni le Règlement
+              Cosmétique Européen (CE 1223/2009) ni les exigences du règlement
+              (CE) n° 1924/2006 sur les allégations nutritionnelles et de santé.
+              Une formulation maladroite suffit pour déclencher des suspensions
+              de paiement ou des contrôles.
             </p>
             <p class="text-slate-400 text-sm mb-6">
-              Avec un solide bagage universitaire en physico-chimie et une
-              maîtrise experte de la création web, j'analyse la composition
-              réelle de vos formules et j'intègre les mentions obligatoires
-              directement dans le code de votre boutique.
+              Avec un solide bagage universitaire en physico-chimie, j’analyse
+              les informations produits visibles sur votre boutique : noms,
+              allégations, listes d’ingrédients, mentions obligatoires, et
+              j'intègre les corrections directement dans le code de votre site.
             </p>
             <div class="flex flex-col gap-2 text-sm text-slate-300">
               <div class="flex items-center gap-2">
-                <strong class="text-emerald">✓</strong> Vérification stricte des
-                allégations santé
+                <strong class="text-emerald">✓</strong> Vérification selon le
+                registre européen des allégations
               </div>
               <div class="flex items-center gap-2">
                 <strong class="text-emerald">✓</strong> Formatage légal des
                 listes INCI
               </div>
               <div class="flex items-center gap-2">
-                <strong class="text-emerald">✓</strong> Intégration sur Shopify
-                / WooCommerce
+                <strong class="text-emerald">✓</strong> Intégration sur mesure
+                sans casser le design
               </div>
             </div>
           </div>
@@ -514,99 +501,168 @@
             Sécurisez votre activité
           </h2>
           <p class="text-slate-400">
-            Des forfaits clairs pour mettre votre catalogue en conformité sans
-            couper votre boutique.
+            Des forfaits clairs pour mettre votre catalogue en conformité au
+            regard des exigences e-commerce.
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 container-sm">
+        <div class="grid grid-cols-1 md-grid-cols-3 gap-6">
           <div class="card flex flex-col justify-between">
             <div>
-              <h3 class="text-xl font-bold text-white mb-2">
-                Pack Audit Express
-              </h3>
+              <h3 class="text-xl font-bold text-white mb-2">Pack Diagnostic</h3>
               <p class="text-slate-400 text-sm mb-6">
-                Idéal pour identifier vos vulnérabilités avant un contrôle ou un
-                lancement marketing.
+                Pour identifier rapidement les risques les plus visibles de
+                votre boutique.
               </p>
-
-              <div class="text-4xl font-extrabold text-white mb-6">
+              <div class="text-3xl font-extrabold text-white mb-6">
                 290 €
-                <span class="text-slate-500 text-sm font-normal"
-                  >paiement unique</span
-                >
+                <span class="text-slate-500 text-sm font-normal">unique</span>
               </div>
-
-              <ul class="text-sm text-slate-400 mb-8 flex flex-col gap-4">
-                <li class="flex items-center gap-2">
-                  ✓ <span>Analyse de votre Top 5 des ventes</span>
+              <ul class="text-sm text-slate-400 mb-8 flex flex-col gap-3">
+                <li class="flex items-start gap-2">
+                  ✓ <span>Analyse de vos 5 fiches produits majeures</span>
                 </li>
-                <li class="flex items-center gap-2">
-                  ✓ <span>Relevé des infractions majeures (EFSA/INCI)</span>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Relevé priorisé des allégations à risque</span>
                 </li>
-                <li class="flex items-center gap-2">
-                  ✓ <span>Vérification des risques de blocage Stripe</span>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Vérification des mentions et structure INCI</span>
                 </li>
-                <li class="flex items-center gap-2">
-                  ✓ <span>Rapport PDF d'actions correctives</span>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Rapport PDF avec corrections recommandées</span>
                 </li>
               </ul>
             </div>
-            <a
-              href="mailto:louis.gergaud5@gmail.com?subject=R%C3%A9servation%20Pack%20Audit%20Express%20(290%E2%82%AC)&body=Bonjour%20Louis,%0A%0AJe%20souhaite%20r%C3%A9server%20le%20Pack%20Audit%20Express%20pour%20ma%20boutique%20:%20"
-              class="btn btn-secondary text-center"
-            >
-              Réserver mon audit
-            </a>
+            <div>
+              <a
+                href="mailto:louis.gergaud5@gmail.com?subject=R%C3%A9servation%20Pack%20Diagnostic"
+                class="btn btn-secondary text-center w-full"
+                >Réserver le diagnostic</a
+              >
+              <p class="text-xs text-slate-500 mt-3 italic text-center">
+                Ce diagnostic ne constitue pas un conseil juridique ni une
+                certification.
+              </p>
+            </div>
           </div>
 
           <div class="card card-premium flex flex-col justify-between">
-            <div class="card-tag">Clé en main</div>
+            <div class="card-tag">Le plus choisi</div>
             <div>
               <h3 class="text-xl font-bold text-white mb-2">
-                Pack Conformité Intégrale
+                Pack Mise en conformité
               </h3>
               <p class="text-slate-400 text-sm mb-6">
-                Mise aux normes complète de votre catalogue et intégration
-                technique sur votre CMS.
+                Pour corriger et intégrer les modifications sur l’ensemble de
+                votre catalogue.
               </p>
-
-              <div class="text-4xl font-extrabold text-white mb-6">
-                790 €
+              <div class="text-3xl font-extrabold text-white mb-6">
+                Dès 790 €
                 <span class="text-slate-500 text-sm font-normal"
-                  >paiement unique</span
+                  >selon volume</span
                 >
               </div>
-
-              <ul class="text-sm text-slate-300 mb-8 flex flex-col gap-4">
-                <li class="flex items-center gap-2">
-                  ✓ <span>Audit complet du catalogue produits</span>
+              <ul class="text-sm text-slate-300 mb-8 flex flex-col gap-3">
+                <li class="flex items-start gap-2">
+                  ✓ <span>Audit complet des fiches produits</span>
                 </li>
-                <li class="flex items-center gap-2">
-                  ✓ <span>Réécriture scientifique des allégations</span>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Réécriture des allégations marketing et santé</span>
                 </li>
-                <li class="flex items-center gap-2">
-                  ✓ <span>Formatage technique des listes d'ingrédients</span>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Harmonisation des listes d’ingrédients / INCI</span>
                 </li>
-                <li class="flex items-center gap-2">
-                  ✓ <span>Intégration directe (Shopify / WooCommerce)</span>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Intégration directe sur le CMS (Shopify/Woo)</span>
                 </li>
-                <li class="flex items-center gap-2">
-                  <span class="text-emerald font-bold">✓</span>
+                <li class="flex items-start gap-2">
+                  <strong class="text-emerald">✓</strong>
                   <strong class="text-emerald"
-                    >Garantie de non-altération du design</strong
+                    >Garantie design : aucune modif visuelle non validée</strong
                   >
                 </li>
               </ul>
             </div>
             <a
-              href="mailto:louis.gergaud5@gmail.com?subject=R%C3%A9servation%20Pack%20Conformit%C3%A9%20Int%C3%A9grale%20(790%E2%82%AC)&body=Bonjour%20Louis,%0A%0AJe%20souhaite%20mettre%20mon%20catalogue%20en%20conformit%C3%A9%20compl%C3%A8te%20(Lien%20boutique)%20:%20"
-              class="btn btn-primary text-center"
+              href="mailto:louis.gergaud5@gmail.com?subject=Devis%20Pack%20Conformit%C3%A9"
+              class="btn btn-primary text-center w-full"
+              >Demander un devis</a
             >
-              Mettre mon site aux normes
-            </a>
+          </div>
+
+          <div class="card flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Veille & Suivi Mensuel
+              </h3>
+              <p class="text-slate-400 text-sm mb-6">
+                Sécurisez vos nouveaux lancements de produits et pages de vente
+                au fil de l'eau.
+              </p>
+              <div class="text-3xl font-extrabold text-white mb-6">
+                Dès 149 €
+                <span class="text-slate-500 text-sm font-normal">/ mois</span>
+              </div>
+              <ul class="text-sm text-slate-400 mb-8 flex flex-col gap-3">
+                <li class="flex items-start gap-2">
+                  ✓ <span>Vérification des nouveaux produits</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Relecture des pages de vente et publicités</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Alertes sur les allégations à risque</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Corrections légères incluses</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  ✓ <span>Rapport mensuel de suivi</span>
+                </li>
+              </ul>
+            </div>
+            <a
+              href="mailto:louis.gergaud5@gmail.com?subject=Infos%20Abonnement%20Veille"
+              class="btn btn-secondary text-center w-full"
+              >S'abonner à la veille</a
+            >
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section" style="background-color: #0f172a">
+      <div class="container container-sm">
+        <h2 class="text-2xl font-bold text-white mb-6">
+          Ce que je ne fais pas
+        </h2>
+        <p class="text-slate-400 text-sm mb-6">
+          Pour garantir une totale transparence, ce service se concentre sur
+          l'intégration e-commerce et les bonnes pratiques de présentation. Il
+          n’inclut pas :
+        </p>
+        <ul class="grid md-grid-cols-2 gap-4 text-sm text-slate-300">
+          <li class="flex items-center gap-2">
+            <strong class="text-red-400">✗</strong> Conseil juridique
+            personnalisé
+          </li>
+          <li class="flex items-center gap-2">
+            <strong class="text-red-400">✗</strong> Évaluation toxicologique
+            d'une formule
+          </li>
+          <li class="flex items-center gap-2">
+            <strong class="text-red-400">✗</strong> Rédaction d'un dossier
+            produit complet
+          </li>
+          <li class="flex items-center gap-2">
+            <strong class="text-red-400">✗</strong> Certification officielle de
+            conformité
+          </li>
+          <li class="flex items-center gap-2 md-col-span-2">
+            <strong class="text-red-400">✗</strong> Garantie de décision
+            favorable d'une autorité (DGCCRF, Stripe, etc.)
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -616,42 +672,36 @@
           <h2 class="text-3xl font-bold text-white mb-2">
             Questions fréquentes
           </h2>
-          <p class="text-slate-400">
-            Transparence totale sur la gestion de votre boutique.
-          </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1rem">
+        <div class="grid grid-cols-1 md-grid-cols-2 gap-4">
           <div class="card" style="padding: 1.25rem">
             <h4 class="text-white font-bold mb-2">
               Avez-vous besoin de mes mots de passe ?
             </h4>
             <p class="text-slate-400 text-sm">
-              Non. Pour le Pack Intégrale, vous me créez un "accès
-              collaborateur" temporaire et restreint sur votre plateforme
-              (Shopify ou WordPress). Vous gardez le contrôle total de votre
-              sécurité et pouvez révoquer l'accès une fois la mission terminée.
+              Non. Vous me créez un "accès collaborateur" temporaire et
+              restreint sur votre plateforme. Vous gardez le contrôle total de
+              votre sécurité.
             </p>
           </div>
           <div class="card" style="padding: 1.25rem">
             <h4 class="text-white font-bold mb-2">
-              Mon site sera-t-il coupé pendant l'intervention ?
+              Mon site sera-t-il coupé ?
             </h4>
             <p class="text-slate-400 text-sm">
-              Absolument pas. Toutes les modifications textuelles et
-              réglementaires sont effectuées en arrière-plan. Vos clients
-              peuvent continuer à naviguer et à acheter sans la moindre
-              interruption.
+              Absolument pas. Toutes les modifications sont effectuées en
+              arrière-plan. Vos clients peuvent continuer à naviguer et à
+              acheter.
             </p>
           </div>
           <div class="card" style="padding: 1.25rem">
             <h4 class="text-white font-bold mb-2">Êtes-vous juriste ?</h4>
             <p class="text-slate-400 text-sm">
               Je suis développeur avec un parcours universitaire en chimie. Je
-              n'offre pas de conseil juridique, mais j'applique strictement les
-              exigences techniques des règlements CE 1223/2009 et 1924/2006
-              (EFSA) pour que votre vitrine digitale soit techniquement
-              inattaquable.
+              n'offre pas de conseil juridique, je mets en place les bonnes
+              pratiques de présentation pour limiter les risques évitables liés
+              à vos fiches produits.
             </p>
           </div>
           <div class="card" style="padding: 1.25rem">
@@ -659,9 +709,8 @@
               Traitez-vous des CMS spécifiques ?
             </h4>
             <p class="text-slate-400 text-sm">
-              J'interviens principalement sur les leaders du marché : Shopify,
-              WooCommerce (WordPress), et les solutions sur-mesure ou headless
-              (Next.js/React).
+              J'interviens principalement sur les leaders du marché : Shopify et
+              WooCommerce (WordPress).
             </p>
           </div>
         </div>
@@ -685,8 +734,8 @@
               Louis <span class="text-slate-400 font-normal">| Webdesign</span>
             </div>
             <p class="text-slate-400 text-sm mb-4">
-              Sécurisation réglementaire et technique pour les marques
-              e-commerce de la cosmétique et de la santé.
+              Mise en conformité du contenu e-commerce pour les cosmétiques et
+              compléments alimentaires.
             </p>
           </div>
 
@@ -696,11 +745,6 @@
               href="tel:+33660699900"
               class="text-slate-400 text-sm hover:text-emerald transition-colors"
               >06 60 69 99 00</a
-            >
-            <a
-              href="https://wa.me/33660699900"
-              class="text-slate-400 text-sm hover:text-emerald transition-colors"
-              >WhatsApp</a
             >
             <a
               href="mailto:louis.gergaud5@gmail.com"
@@ -726,7 +770,6 @@
             >
           </div>
         </div>
-
         <div
           class="text-center text-xs text-slate-500 pt-8"
           style="border-top: 1px solid #0f172a"
