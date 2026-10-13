@@ -6,6 +6,9 @@
     <title>
       Louis Webdesign — Création de sites internet pour artisans et TPE
     </title>
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+
     <meta
       name="description"
       content="Création de sites internet modernes, rapides et optimisés pour artisans, indépendants et TPE locales. Votre site en ligne en 3 à 4 jours ouvrés."
@@ -291,9 +294,7 @@
       }
 
       @media (min-width: 768px) {
-        .grid-cols-2 {
-          grid-template-columns: repeat(2, 1fr);
-        }
+        /* Correction de la grille des prix pour accepter 3 colonnes sur grand écran */
         .grid-cols-3 {
           grid-template-columns: repeat(3, 1fr);
         }
@@ -317,6 +318,13 @@
           left: -1rem;
           width: 2rem;
           border-top: 2px dashed #334155;
+        }
+      }
+
+      /* Sur les très grands écrans, on force les 3 colonnes pour la grille des prix */
+      @media (min-width: 1024px) {
+        .lg-grid-cols-3 {
+          grid-template-columns: repeat(3, 1fr);
         }
       }
 
@@ -500,11 +508,12 @@
           style="background: linear-gradient(to right, #0f172a, #020617)"
         >
           <div class="md-w-5-12">
+            <!-- Modification majeure : Image d'illustration webdesign haut de gamme depuis Unsplash -->
             <div
               style="
                 width: 100%;
                 aspect-ratio: 1/1;
-                background-image: url(&quot;assets/photo-louis.jpg&quot;);
+                background-image: url(&quot;https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80&quot;);
                 background-size: cover;
                 background-position: center;
                 border-radius: 1rem;
@@ -519,15 +528,15 @@
               L'artisan de votre présence en ligne
             </h2>
             <p class="text-slate-400 text-sm mb-4">
-              Je m'appelle Louis, je suis développeur web indépendant. Je
-              travaille en direct avec les artisans, commerçants et TPE pour
-              leur fournir des sites performants sans le jargon technique ni les
-              prix exorbitants des grosses agences.
+              En tant que développeur web indépendant, je travaille en direct
+              avec les artisans, commerçants et TPE pour leur fournir des sites
+              performants. Sans jargon technique, ni les prix exorbitants des
+              grosses agences.
             </p>
             <p class="text-slate-400 text-sm mb-6">
               Mon objectif : faire de votre site un véritable apporteur
               d'affaires. Vous gérez vos chantiers et vos clients, je m'occupe
-              de votre visibilité.
+              de votre visibilité sur internet.
             </p>
             <div class="flex items-center gap-2 font-bold text-emerald text-sm">
               <svg
@@ -567,7 +576,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div class="card text-center step-card">
             <div class="step-number">1</div>
             <h3 class="text-lg font-bold text-white mb-2">Cadrage rapide</h3>
@@ -610,7 +619,8 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-2 gap-8 container-sm">
+        <!-- Correction majeure : Passage à grid-cols-3 (lg-grid-cols-3) pour accepter les 3 cartes sans casser le design, et retrait du container-sm pour laisser la place -->
+        <div class="grid grid-cols-1 lg-grid-cols-3 gap-8">
           <div class="card card-premium flex flex-col justify-between">
             <div class="card-tag">Le plus populaire</div>
             <div>
@@ -739,6 +749,7 @@
           style="
             border: 2px solid rgba(16, 185, 129, 0.3);
             background-color: rgba(16, 185, 129, 0.05);
+            margin: 2rem auto 0 auto;
           "
         >
           <div>
@@ -1064,6 +1075,12 @@
               href="politique-confidentialite.html"
               class="text-slate-400 text-sm hover:text-emerald transition-colors"
               >Politique de confidentialité</a
+            >
+            <!-- Ajout discret du lien SEO vers la page d'audit de conformité -->
+            <a
+              href="audit-conformite.html"
+              class="text-slate-400 text-sm hover:text-emerald transition-colors mt-2"
+              >Audit conformité e-commerce & marques</a
             >
             <span class="text-slate-500 text-xs mt-2"
               >SIRET : 990 434 664 00019</span
