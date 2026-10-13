@@ -1,0 +1,739 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Louis Webdesign — Audit & Conformité E-commerce (Cosmétiques &
+      Compléments)
+    </title>
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <meta
+      name="description"
+      content="Évitez les blocages Stripe et les sanctions de la DGCCRF. Mise aux normes techniques et réglementaires de vos fiches produits par un développeur expert en chimie."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #020617;
+        color: #f1f5f9;
+        line-height: 1.5;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::selection {
+        background-color: #10b981;
+        color: #000;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      ul {
+        list-style: none;
+      }
+
+      .text-emerald {
+        color: #34d399;
+      }
+      .text-white {
+        color: #ffffff;
+      }
+      .text-slate-300 {
+        color: #cbd5e1;
+      }
+      .text-slate-400 {
+        color: #94a3b8;
+      }
+      .text-slate-500 {
+        color: #64748b;
+      }
+      .text-amber {
+        color: #fbbf24;
+      }
+      .text-red-400 {
+        color: #f87171;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+      .text-right {
+        text-align: right;
+      }
+      .font-bold {
+        font-weight: 700;
+      }
+      .font-extrabold {
+        font-weight: 800;
+      }
+      .italic {
+        font-style: italic;
+      }
+
+      .container {
+        width: 100%;
+        max-width: 1024px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .container-sm {
+        max-width: 896px;
+      }
+      .section {
+        padding: 5rem 0;
+        border-top: 1px solid #0f172a;
+      }
+
+      .flex {
+        display: flex;
+      }
+      .items-center {
+        align-items: center;
+      }
+      .justify-center {
+        justify-content: center;
+      }
+      .justify-between {
+        justify-content: space-between;
+      }
+      .flex-col {
+        flex-direction: column;
+      }
+      .gap-2 {
+        gap: 0.5rem;
+      }
+      .gap-4 {
+        gap: 1rem;
+      }
+      .gap-6 {
+        gap: 1.5rem;
+      }
+      .gap-8 {
+        gap: 2rem;
+      }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background-color: rgba(2, 6, 23, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid #1e293b;
+        height: 4rem;
+      }
+
+      .pulse-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #10b981;
+        display: inline-block;
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.375rem 0.75rem;
+        border-radius: 9999px;
+        background-color: rgba(16, 185, 129, 0.1);
+        border: 1px solid rgba(16, 185, 129, 0.2);
+        color: #34d399;
+        font-size: 0.75rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 1rem 2rem;
+        border-radius: 0.75rem;
+        font-weight: 700;
+        transition: all 0.2s;
+        cursor: pointer;
+        width: 100%;
+      }
+      .btn-primary {
+        background-color: #10b981;
+        color: #020617;
+        box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.2);
+      }
+      .btn-primary:hover {
+        background-color: #34d399;
+      }
+      .btn-secondary {
+        background-color: #0f172a;
+        color: #ffffff;
+        border: 1px solid #1e293b;
+      }
+      .btn-secondary:hover {
+        background-color: #1e293b;
+      }
+      .btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        border-radius: 0.5rem;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .btn-sm:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .grid {
+        display: grid;
+        gap: 2rem;
+      }
+      .card {
+        background-color: #0f172a;
+        border: 1px solid #1e293b;
+        border-radius: 1rem;
+        padding: 1.5rem;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 20px 25px -5px rgba(0, 0, 0, 0.3),
+          0 10px 10px -5px rgba(0, 0, 0, 0.2);
+      }
+      .card-premium {
+        background: linear-gradient(to bottom, #0f172a, #020617);
+        border: 2px solid rgba(16, 185, 129, 0.4);
+        position: relative;
+      }
+      .card-tag {
+        position: absolute;
+        top: -0.75rem;
+        right: 1.5rem;
+        background-color: #10b981;
+        color: #020617;
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .step-number {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        background-color: rgba(16, 185, 129, 0.2);
+        color: #34d399;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin: 0 auto 1rem auto;
+        border: 1px solid rgba(16, 185, 129, 0.3);
+      }
+
+      @media (min-width: 640px) {
+        .sm-flex-row {
+          flex-direction: row;
+        }
+        .btn {
+          width: auto;
+        }
+        .hero-title {
+          font-size: 3rem;
+        }
+      }
+      @media (min-width: 768px) {
+        .grid-cols-2 {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .grid-cols-3 {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .md-flex-row {
+          flex-direction: row;
+        }
+        .md-w-5-12 {
+          width: 41.666%;
+        }
+        .md-w-7-12 {
+          width: 58.333%;
+        }
+      }
+
+      .hero-title {
+        font-size: 2.25rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+      }
+      .hero-subtitle {
+        font-size: 1.125rem;
+        color: #94a3b8;
+        margin-bottom: 2.5rem;
+      }
+      .underline-emerald {
+        text-decoration: underline;
+        text-decoration-color: rgba(16, 185, 129, 0.4);
+      }
+      .mb-1 {
+        margin-bottom: 0.25rem;
+      }
+      .mb-2 {
+        margin-bottom: 0.5rem;
+      }
+      .mb-4 {
+        margin-bottom: 1rem;
+      }
+      .mb-6 {
+        margin-bottom: 1.5rem;
+      }
+      .mb-8 {
+        margin-bottom: 2rem;
+      }
+      .mb-12 {
+        margin-bottom: 3rem;
+      }
+      .mt-8 {
+        margin-top: 2rem;
+      }
+      .text-sm {
+        font-size: 0.875rem;
+      }
+      .text-xs {
+        font-size: 0.75rem;
+      }
+      .text-lg {
+        font-size: 1.125rem;
+      }
+      .text-xl {
+        font-size: 1.25rem;
+      }
+      .text-2xl {
+        font-size: 1.5rem;
+      }
+      .text-3xl {
+        font-size: 1.875rem;
+      }
+      .text-4xl {
+        font-size: 2.25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div
+        class="container flex items-center justify-between"
+        style="height: 100%"
+      >
+        <a
+          href="#"
+          class="flex items-center gap-2 text-lg font-bold text-white"
+        >
+          <span class="pulse-dot"></span>
+          Louis <span class="text-slate-400 font-normal">| Webdesign</span>
+        </a>
+        <a
+          href="mailto:louis.gergaud5@gmail.com?subject=Demande%20de%20contact%20-%20Audit%20Conformit%C3%A9"
+          class="btn-sm text-white font-bold flex items-center gap-2"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width="20" height="16" x="2" y="4" rx="2" />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+          Prendre contact
+        </a>
+      </div>
+    </header>
+
+    <section
+      class="section text-center"
+      style="padding-top: 5rem; border-top: none"
+    >
+      <div class="container container-sm">
+        <div class="badge">E-commerce Shopify & WooCommerce</div>
+
+        <h1 class="hero-title text-white">
+          Sécurisez votre boutique e-commerce :
+          <span class="text-emerald underline-emerald"
+            >Audit de conformité</span
+          >
+          réglementaire.
+        </h1>
+
+        <p class="hero-subtitle">
+          Évitez les blocages de vos processeurs de paiement (Stripe, PayPal) et
+          les sanctions de la DGCCRF. Mise aux normes techniques et
+          scientifiques de vos fiches produits cosmétiques et compléments
+          alimentaires.
+        </p>
+
+        <div
+          class="flex flex-col sm-flex-row items-center justify-center gap-4"
+        >
+          <a
+            href="mailto:louis.gergaud5@gmail.com?subject=Demande%20d'audit%20de%20conformit%C3%A9%20e-commerce&body=Bonjour%20Louis,%0A%0AVoici%20l'adresse%20de%20ma%20boutique%20:%20%0ANos%20produits%20(cosm%C3%A9tiques%20ou%20compl%C3%A9ments)%20:%20%0A%0AMerci !"
+            class="btn btn-primary"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-mail"
+            >
+              <rect width="20" height="16" x="2" y="4" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+            Demander mon audit gratuit (10 min)
+          </a>
+          <a href="#offres" class="btn btn-secondary">
+            Voir les packs d'intervention ↓
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-sm">
+        <div
+          class="card flex flex-col md-flex-row items-center gap-8"
+          style="background: linear-gradient(to right, #0f172a, #020617)"
+        >
+          <div class="md-w-5-12">
+            <div
+              style="
+                width: 100%;
+                aspect-ratio: 1/1;
+                background-image: url(&quot;https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=800&q=80&quot;);
+                background-size: cover;
+                background-position: center;
+                border-radius: 1rem;
+                border: 1px solid #1e293b;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+              "
+            ></div>
+          </div>
+          <div class="md-w-7-12">
+            <div
+              class="badge mb-4"
+              style="
+                background-color: rgba(248, 113, 113, 0.1);
+                color: #f87171;
+                border-color: rgba(248, 113, 113, 0.2);
+              "
+            >
+              Le problème des agences web
+            </div>
+            <h2 class="text-2xl font-bold text-white mb-4">
+              La seule prestation qui allie code et rigueur scientifique
+            </h2>
+            <p class="text-slate-400 text-sm mb-4">
+              Les développeurs traditionnels et les rédacteurs SEO ne maîtrisent
+              ni le Règlement Cosmétique Européen (CE 1223/2009) ni le registre
+              EFSA pour les compléments alimentaires. Une allégation santé
+              maladroite ou une liste INCI mal formatée suffit pour faire
+              bloquer vos encaissements par Stripe.
+            </p>
+            <p class="text-slate-400 text-sm mb-6">
+              Avec un solide bagage universitaire en physico-chimie et une
+              maîtrise experte de la création web, j'analyse la composition
+              réelle de vos formules et j'intègre les mentions obligatoires
+              directement dans le code de votre boutique.
+            </p>
+            <div class="flex flex-col gap-2 text-sm text-slate-300">
+              <div class="flex items-center gap-2">
+                <strong class="text-emerald">✓</strong> Vérification stricte des
+                allégations santé
+              </div>
+              <div class="flex items-center gap-2">
+                <strong class="text-emerald">✓</strong> Formatage légal des
+                listes INCI
+              </div>
+              <div class="flex items-center gap-2">
+                <strong class="text-emerald">✓</strong> Intégration sur Shopify
+                / WooCommerce
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offres" class="section">
+      <div class="container">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-2">
+            Sécurisez votre activité
+          </h2>
+          <p class="text-slate-400">
+            Des forfaits clairs pour mettre votre catalogue en conformité sans
+            couper votre boutique.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 container-sm">
+          <div class="card flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Pack Audit Express
+              </h3>
+              <p class="text-slate-400 text-sm mb-6">
+                Idéal pour identifier vos vulnérabilités avant un contrôle ou un
+                lancement marketing.
+              </p>
+
+              <div class="text-4xl font-extrabold text-white mb-6">
+                290 €
+                <span class="text-slate-500 text-sm font-normal"
+                  >paiement unique</span
+                >
+              </div>
+
+              <ul class="text-sm text-slate-400 mb-8 flex flex-col gap-4">
+                <li class="flex items-center gap-2">
+                  ✓ <span>Analyse de votre Top 5 des ventes</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Relevé des infractions majeures (EFSA/INCI)</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Vérification des risques de blocage Stripe</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Rapport PDF d'actions correctives</span>
+                </li>
+              </ul>
+            </div>
+            <a
+              href="mailto:louis.gergaud5@gmail.com?subject=R%C3%A9servation%20Pack%20Audit%20Express%20(290%E2%82%AC)&body=Bonjour%20Louis,%0A%0AJe%20souhaite%20r%C3%A9server%20le%20Pack%20Audit%20Express%20pour%20ma%20boutique%20:%20"
+              class="btn btn-secondary text-center"
+            >
+              Réserver mon audit
+            </a>
+          </div>
+
+          <div class="card card-premium flex flex-col justify-between">
+            <div class="card-tag">Clé en main</div>
+            <div>
+              <h3 class="text-xl font-bold text-white mb-2">
+                Pack Conformité Intégrale
+              </h3>
+              <p class="text-slate-400 text-sm mb-6">
+                Mise aux normes complète de votre catalogue et intégration
+                technique sur votre CMS.
+              </p>
+
+              <div class="text-4xl font-extrabold text-white mb-6">
+                790 €
+                <span class="text-slate-500 text-sm font-normal"
+                  >paiement unique</span
+                >
+              </div>
+
+              <ul class="text-sm text-slate-300 mb-8 flex flex-col gap-4">
+                <li class="flex items-center gap-2">
+                  ✓ <span>Audit complet du catalogue produits</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Réécriture scientifique des allégations</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Formatage technique des listes d'ingrédients</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  ✓ <span>Intégration directe (Shopify / WooCommerce)</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="text-emerald font-bold">✓</span>
+                  <strong class="text-emerald"
+                    >Garantie de non-altération du design</strong
+                  >
+                </li>
+              </ul>
+            </div>
+            <a
+              href="mailto:louis.gergaud5@gmail.com?subject=R%C3%A9servation%20Pack%20Conformit%C3%A9%20Int%C3%A9grale%20(790%E2%82%AC)&body=Bonjour%20Louis,%0A%0AJe%20souhaite%20mettre%20mon%20catalogue%20en%20conformit%C3%A9%20compl%C3%A8te%20(Lien%20boutique)%20:%20"
+              class="btn btn-primary text-center"
+            >
+              Mettre mon site aux normes
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container container-sm">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-white mb-2">
+            Questions fréquentes
+          </h2>
+          <p class="text-slate-400">
+            Transparence totale sur la gestion de votre boutique.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2" style="gap: 1rem">
+          <div class="card" style="padding: 1.25rem">
+            <h4 class="text-white font-bold mb-2">
+              Avez-vous besoin de mes mots de passe ?
+            </h4>
+            <p class="text-slate-400 text-sm">
+              Non. Pour le Pack Intégrale, vous me créez un "accès
+              collaborateur" temporaire et restreint sur votre plateforme
+              (Shopify ou WordPress). Vous gardez le contrôle total de votre
+              sécurité et pouvez révoquer l'accès une fois la mission terminée.
+            </p>
+          </div>
+          <div class="card" style="padding: 1.25rem">
+            <h4 class="text-white font-bold mb-2">
+              Mon site sera-t-il coupé pendant l'intervention ?
+            </h4>
+            <p class="text-slate-400 text-sm">
+              Absolument pas. Toutes les modifications textuelles et
+              réglementaires sont effectuées en arrière-plan. Vos clients
+              peuvent continuer à naviguer et à acheter sans la moindre
+              interruption.
+            </p>
+          </div>
+          <div class="card" style="padding: 1.25rem">
+            <h4 class="text-white font-bold mb-2">Êtes-vous juriste ?</h4>
+            <p class="text-slate-400 text-sm">
+              Je suis développeur avec un parcours universitaire en chimie. Je
+              n'offre pas de conseil juridique, mais j'applique strictement les
+              exigences techniques des règlements CE 1223/2009 et 1924/2006
+              (EFSA) pour que votre vitrine digitale soit techniquement
+              inattaquable.
+            </p>
+          </div>
+          <div class="card" style="padding: 1.25rem">
+            <h4 class="text-white font-bold mb-2">
+              Traitez-vous des CMS spécifiques ?
+            </h4>
+            <p class="text-slate-400 text-sm">
+              J'interviens principalement sur les leaders du marché : Shopify,
+              WooCommerce (WordPress), et les solutions sur-mesure ou headless
+              (Next.js/React).
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer
+      class="section"
+      style="padding: 4rem 0 2rem 0; background-color: #020617"
+    >
+      <div
+        class="container border-t"
+        style="border-top: 1px solid #1e293b; padding-top: 3rem"
+      >
+        <div class="flex flex-col md-flex-row justify-between gap-8 mb-8">
+          <div class="md-w-5-12">
+            <div
+              class="flex items-center gap-2 text-lg font-bold text-white mb-4"
+            >
+              <span class="pulse-dot"></span>
+              Louis <span class="text-slate-400 font-normal">| Webdesign</span>
+            </div>
+            <p class="text-slate-400 text-sm mb-4">
+              Sécurisation réglementaire et technique pour les marques
+              e-commerce de la cosmétique et de la santé.
+            </p>
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div class="font-bold text-white mb-2">Contact direct</div>
+            <a
+              href="tel:+33660699900"
+              class="text-slate-400 text-sm hover:text-emerald transition-colors"
+              >06 60 69 99 00</a
+            >
+            <a
+              href="https://wa.me/33660699900"
+              class="text-slate-400 text-sm hover:text-emerald transition-colors"
+              >WhatsApp</a
+            >
+            <a
+              href="mailto:louis.gergaud5@gmail.com"
+              class="text-slate-400 text-sm hover:text-emerald transition-colors"
+              >Envoyer un email</a
+            >
+          </div>
+
+          <div class="flex flex-col gap-2">
+            <div class="font-bold text-white mb-2">Informations légales</div>
+            <a
+              href="mentions-legales.html"
+              class="text-slate-400 text-sm hover:text-emerald transition-colors"
+              >Mentions légales</a
+            >
+            <a
+              href="politique-confidentialite.html"
+              class="text-slate-400 text-sm hover:text-emerald transition-colors"
+              >Politique de confidentialité</a
+            >
+            <span class="text-slate-500 text-xs mt-2"
+              >SIRET : 990 434 664 00019</span
+            >
+          </div>
+        </div>
+
+        <div
+          class="text-center text-xs text-slate-500 pt-8"
+          style="border-top: 1px solid #0f172a"
+        >
+          <p>© 2026 louis-webdesign.fr — Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
